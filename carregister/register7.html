@@ -8,22 +8,22 @@
             $("#submit").click(function(e) {
                 e.preventDefault();
                 var name = $("#name").val(),
-                    email = $("#email").val(),
-                    subject = $("#subject").val(),
-                    message = $("#message").val();
+                    phone = $("#email").val(),
+                    carType = $("#subject").val(),
+                    location = $("#message").val();
                 $.ajax({
                     type: "POST",
                     url: 'https://v3s6u68t07.execute-api.ap-south-1.amazonaws.com/default/formAPI',
                     headers: {'x-api-key': 'hcGahR1OBd8OxmvUvzBEi7PZdeycHaSc2s7G9knO'},
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        'name': name,
-                        'email': email,
-                        'subject': subject,
-                        'message': message
+                        'customer name': name,
+                        'customer phone': phone,
+                        'car type': carType,
+                        'pickup location': location
                     }),
                     success: function(res) {
-                        $('#form-response').text('Thank you. Your message was sent.');
+                        $('#form-response').text('Thank you. Your ride booked successfully.');
                     },
                     error: function() {
                         $('#form-response').text('Error.');
@@ -92,7 +92,7 @@
           <label for="cars">Choose a car:</label>
                   <select id="subject" type="text" name="your-name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false">
                   <option value="HYUNDAI-I20" >HYUNDAI-I20</option>
-                  <option value="MASTERTON TAXIS" >MASTERTON TAXIS</option>
+                  <option value="MASTERTON TAXIS">MASTERTON TAXIS</option>
                   <option value="MARUTI SWIFT">MARUTI SWIFT</option>
                   <option value="HYUNDAI XCENT">HYUNDAI XCENT</option>
                   <option value="MARUTI WAGON">MARUTI WAGON</option>
@@ -106,7 +106,7 @@
           </div>
           <div class="column col-md-12">
             </p>
-            <div class="form-group"> <span class="wpcf7-form-control-wrap your-message"><textarea  id="message" name="your-message" cols="40" rows="4" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Message..."></textarea></span></div>
+            <div class="form-group"> <span class="wpcf7-form-control-wrap your-message"><textarea  id="message" name="your-message" cols="40" rows="4" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Enter Pickup/delivery Point"></textarea></span></div>
             </p>
         </div>
         </p>
